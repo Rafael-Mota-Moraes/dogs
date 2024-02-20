@@ -9,6 +9,7 @@ body {
   --type-first: Helvetica, Arial, sans-serif;
   --type-second: "Spectral", georgia;
 
+  padding-top: 5rem;
   font-family: var(--type-first);
 }
 
@@ -38,6 +39,10 @@ input {
   font-size: 1rem;
   font-family: var(--type-first);
   color: #333;
+}
+
+a {
+  text-decoration: none;
 }
 
 .container {
