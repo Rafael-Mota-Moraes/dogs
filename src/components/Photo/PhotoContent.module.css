@@ -1,6 +1,6 @@
 .photo {
   margin: auto;
-  max-height: 36rem;
+  height: 36rem;
   border-radius: 0.2rem;
   background: white;
   display: grid;
@@ -24,7 +24,7 @@
 }
 
 .img {
-  grid-template-rows: 1/4;
+  grid-row: 1/4;
 }
 
 .comments {
@@ -34,11 +34,10 @@
 @media (max-width: 64rem) {
   .photo {
     height: auto;
-    max-height: 100vh - 4rem;
+    max-height: calc(100vh - 4rem);
     overflow-y: auto;
     grid-template-columns: minmax(20rem, 40rem);
   }
-
   .img {
     grid-row: 1;
   }
@@ -58,9 +57,9 @@
 
 .visualizacoes::before {
   content: "";
+  display: inline-block;
   width: 16px;
   height: 10px;
-  display: inline-block;
   margin-right: 0.5rem;
   background: url("../../Assets/visualizacao-black.svg");
 }
