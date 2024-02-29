@@ -13,18 +13,6 @@ export function TOKEN_POST(body) {
   };
 }
 
-export function USER_GET(token) {
-  return {
-    url: API_URL + "/api/user",
-    options: {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    },
-  };
-}
-
 export function TOKEN_VALIDATE_POST(token) {
   return {
     url: API_URL + "/jwt-auth/v1/token/validate",
@@ -37,18 +25,32 @@ export function TOKEN_VALIDATE_POST(token) {
   };
 }
 
+export function USER_GET(token) {
+  return {
+    url: API_URL + "/api/user",
+    options: {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    },
+  };
+}
+
 export function USER_POST(body) {
   return {
     url: API_URL + "/api/user",
     options: {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(body),
     },
   };
 }
 
-export function PHOTO_POST(token, formData) {
+export function PHOTO_POST(formData, token) {
   return {
     url: API_URL + "/api/photo",
     options: {
@@ -63,7 +65,7 @@ export function PHOTO_POST(token, formData) {
 
 export function PHOTOS_GET({ page, total, user }) {
   return {
-    url: `${API_URL}/api/photo/?_page=${page}&_total=${total}&_user${user}`,
+    url: `${API_URL}/api/photo/?_page=${page}&_total=${total}&_user=${user}`,
     options: {
       method: "GET",
       cache: "no-store",
@@ -95,7 +97,7 @@ export function COMMENT_POST(id, body) {
   };
 }
 
-export function PHOTO_DELETE(id, body) {
+export function PHOTO_DELETE(id) {
   return {
     url: `${API_URL}/api/photo/${id}`,
     options: {
